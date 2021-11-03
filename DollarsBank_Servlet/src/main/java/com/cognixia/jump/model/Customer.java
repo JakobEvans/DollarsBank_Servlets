@@ -4,64 +4,96 @@ import java.util.Date;
 
 public class Customer {
 
-	private String isbn;
-	private String title;
-	private String description;
-	private boolean rented;
-	private Date added_to_library;
+	private int customerId;
 
-	public Customer(String isbn, String title, String description, boolean rented, Date added_to_library) {
+	private static int maxCustomerId = 1;
+
+	private String name;
+
+	private String address;
+
+	private String phoneNumber;
+
+	private Account customerAccount;
+
+	public Customer(String name, String address, String phoneNumber, Account customerAccount) {
 		super();
-		this.isbn = isbn;
-		this.title = title;
-		this.description = description;
-		this.rented = rented;
-		this.added_to_library = added_to_library;
+
+		this.customerId = maxCustomerId++;
+		this.name = name;
+		this.address = address;
+
+		this.phoneNumber = phoneNumber;
+		this.customerAccount = customerAccount;
+
 	}
 
-	public Date getAdded_to_library() {
-		return added_to_library;
+
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAdded_to_library(Date added_to_library) {
-		this.added_to_library = added_to_library;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-	public boolean isRented() {
-		return rented;
+	public Customer() {
+		super();
+		this.customerId = maxCustomerId++;
+		this.address = "N/A";
+
+		this.name = "Null";
+		this.phoneNumber = "0000000000";
+		this.customerAccount = new Account();
+
 	}
 
-	public void setRented(boolean rented) {
-		this.rented = rented;
+	public int getCustomerId() {
+		return customerId;
 	}
 
-	public String getIsbn() {
-		return isbn;
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
 	}
 
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
+	public String getName() {
+		return name;
 	}
 
-	public String getTitle() {
-		return title;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public String getDescription() {
-		return description;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public Account getCustomerAccount() {
+		return customerAccount;
+	}
+
+	public void setCustomerAccount(Account customerAccount) {
+		this.customerAccount = customerAccount;
 	}
 
 	@Override
 	public String toString() {
-		return "Customer [isbn=" + isbn + ", title=" + title  + ", description=" + description + ", available=" + rented + "]";
+		return "Customer [customerId=" + customerId + " name=" + name + ", address=" + address + ", phoneNumber="
+				+ phoneNumber + ", customerAccount=" + customerAccount + "]";
 	}
 
+	public String customerInformation() {
+		return "\nCustomerId = " + customerId + "\nCustomer Name = " + name + "\nCustomer Address = " + address
+				+ "\nCustomer Phone Number = " + phoneNumber + "\nAccount Username = " + customerAccount.getUsername()
+				+ "\nAccount Password = " + customerAccount.getPassword() + "\nAccount Initial Deposit = "
+				+ customerAccount.getInitialDeposit();
+	
+
+
+
+}
 }
