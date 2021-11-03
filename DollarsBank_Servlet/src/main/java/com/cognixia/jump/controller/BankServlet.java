@@ -30,8 +30,12 @@ public class BankServlet extends HttpServlet {
 		private AccountDaoImp accountDao;
 
 //	    private Customer loggedInCustomer;
+	    private Customer loggedInCustomer;
 
-	    private AccountDao account;
+		
+		
+
+//	    private AccountDao account;
 
 	    
 	    
